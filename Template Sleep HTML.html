@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YOUR TITLE HERE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#141a3d; --indigo:#2f3a8f; --mist:#e8eaf6; --paper:#f7f8fc; --amber:#e8b46a; --muted:#5b6190; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin:0; font-family:"Manrope","Helvetica Neue",Arial,sans-serif; line-height:1.7; background:var(--paper); color:var(--ink); }
+  h1,h2,h3 { line-height:1.12; margin:0 0 .5em; letter-spacing:-.02em; }
+  h1 { font-size:clamp(2.6rem,8vw,5rem); font-weight:800; }
+  h2 { font-size:clamp(1.7rem,4vw,2.4rem); font-weight:800; }
+  h3 { font-size:1.05rem; font-weight:700; letter-spacing:0; }
+  a { color:var(--indigo); font-weight:700; }
+  a:focus-visible, input:focus-visible { outline:3px solid var(--amber); outline-offset:3px; }
+  .wrap { max-width:920px; margin:0 auto; padding:0 1.5rem; }
+  section { padding:4.5rem 0; }
+  .placeholder { color:var(--muted); font-style:italic; }
+  .cite { font-size:.85rem; color:var(--muted); margin-top:1.5rem; }
+  ul.clean { padding-left:1.1rem; margin:0; }
+  ul.clean li { padding:.25rem 0; }
+
+  .hero { background:var(--ink); color:var(--paper); padding:6rem 0 5rem; position:relative; overflow:hidden; }
+  .hero p { max-width:34rem; font-size:1.15rem; color:var(--mist); margin:0; }
+  .moon { position:absolute; right:-30px; top:40px; width:clamp(120px,24vw,240px); aspect-ratio:1; border-radius:50%; background:var(--ink); box-shadow:inset -34px 12px 0 0 var(--amber); }
+  .scroll { display:inline-block; margin-top:2.5rem; color:var(--amber); text-decoration:none; }
+
+  .timeline { list-style:none; margin:2.5rem 0 0; padding:0; position:relative; }
+  .timeline::before { content:""; position:absolute; left:7px; top:8px; bottom:8px; width:2px; background:var(--indigo); }
+  .timeline li { position:relative; padding:0 0 2rem 2.5rem; font-size:.95rem; }
+  .timeline li::before { content:""; position:absolute; left:0; top:8px; width:16px; height:16px; background:var(--amber); border:3px solid var(--paper); box-shadow:0 0 0 2px var(--indigo); border-radius:50%; }
+  .timeline .label { display:block; font-weight:800; font-size:1.4rem; color:var(--indigo); }
+  @media (min-width:760px) {
+    .timeline { display:grid; grid-template-columns:repeat(5,1fr); gap:1.25rem; padding-top:2.5rem; }
+    .timeline::before { left:0; right:0; top:8px; bottom:auto; width:auto; height:2px; }
+    .timeline li { padding:1rem 0 0; }
+    .timeline li::before { top:-2.55rem; }
+  }
+
+  .alt { background:var(--mist); }
+  .two { display:grid; gap:3rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+  .two > div { border-top:3px solid var(--indigo); padding-top:1rem; }
+  .lead { font-size:1.05rem; margin:0 0 1rem; }
+
+  .tips { display:grid; gap:2rem 3rem; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); margin-top:2rem; }
+  .tips h3 { color:var(--indigo); margin-bottom:.2em; }
+  .tips p { margin:0; }
+
+  .checklist label { display:flex; gap:.85rem; align-items:center; padding:.65rem 0; border-bottom:1px solid var(--mist); cursor:pointer; }
+  .checklist input { width:1.25rem; height:1.25rem; accent-color:var(--indigo); flex:none; }
+  .checklist input:checked + span { text-decoration:line-through; color:var(--muted); }
+
+  .resources { background:var(--ink); color:var(--paper); }
+  .resources h3 { color:var(--amber); }
+  .resources a { color:var(--paper); text-decoration-color:var(--amber); text-underline-offset:4px; }
+  .resources .placeholder { color:var(--mist); opacity:.8; }
+  .res-grid { display:grid; gap:2.5rem 3rem; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); margin-top:2rem; }
+  .res-grid ul { list-style:none; padding:0; margin:0; }
+  .res-grid li { padding:.3rem 0; }
+
+  footer { background:var(--ink); color:var(--mist); padding:2rem 0 3rem; border-top:1px solid var(--indigo); font-size:.9rem; }
+  footer h3 { color:var(--amber); }
+  footer a { color:var(--amber); word-break:break-word; }
+  .ref { padding-left:2rem; text-indent:-2rem; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="moon" aria-hidden="true"></div>
+  <div class="wrap">
+    <h1>YOUR TITLE HERE</h1>
+    <p>YOUR ONE-SENTENCE INTRO HERE</p>
+    <a class="scroll" href="#info">Scroll to start</a>
+  </div>
+</header>
+
+<main>
+  <!-- INFOGRAPHIC: the 5 principles -->
+  <section id="info">
+    <div class="wrap">
+      <h2>5 principles of good sleep health</h2>
+      <ol class="timeline">
+        <li><span class="label">Value</span>Recognize that sleep is essential and important to your health. Quality sleep is just as crucial as water or food.</li>
+        <li><span class="label">Prioritize</span>Put sleep first. This is something that needs action.</li>
+        <li><span class="label">Personalize</span>Understand your own sleep habits. Identify how many hours you need to feel alert and energized the following day.</li>
+        <li><span class="label">Trust</span>Trials and errors. Accept that this is a journey of growth and learning about your own body. Sleep is a natural process.</li>
+        <li><span class="label">Protect</span>Sleep is protected by habit and pattern. Find a pattern that works for you. Observe what environment provides the best sleep.</li>
+      </ol>
+      <p class="cite">(Espie, 2022)</p>
+    </div>
+  </section>
+
+  <!-- WHY IT MATTERS + WHAT IT IS -->
+  <section class="alt">
+    <div class="wrap two">
+      <div>
+        <h2>Why sleep matters</h2>
+        <ul class="clean">
+          <li>Over half of Americans report sleep problems.</li>
+          <li>Poor sleep affects motivation, mood, and thinking.</li>
+          <li>Poor sleep raises the risk of diabetes, heart disease, and other health problems.</li>
+          <li>These effects happen even when sleep problems are mild.</li>
+        </ul>
+        <p class="cite">(Irish et al., 2015)</p>
+      </div>
+      <div>
+        <h2>What sleep hygiene is</h2>
+        <p class="lead">Sleep hygiene means daily habits and bedroom conditions that support good sleep.</p>
+        <ul class="clean">
+          <li>It’s low-cost, easy to share, and doesn’t require a clinician.</li>
+          <li>People often prefer it over other sleep strategies and stick with it.</li>
+          <li>It works best as a first step, not as the only treatment for insomnia.</li>
+        </ul>
+        <p class="cite">(De Pasquale et al., 2024)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIPS -->
+  <section>
+    <div class="wrap">
+      <h2>Tips to best support</h2>
+      <div class="tips">
+        <div><h3>Keep a regular wake time</h3><p>A steady wake time matters more than a fixed bedtime.</p></div>
+        <div><h3>Limit caffeine near bedtime</h3><p>Large amounts close to bed clearly disrupt sleep.</p></div>
+        <div><h3>Avoid alcohol before bed</h3><p>It helps people fall asleep but causes lighter, broken sleep later in the night.</p></div>
+        <div><h3>Exercise regularly</h3><p>It modestly improves sleep, and exercising at night doesn’t seem to hurt sleep.</p></div>
+        <div><h3>Manage stress before bed</h3><p>Relaxation and mindfulness can calm the mind and body.</p></div>
+        <div><h3>Reduce bedroom noise</h3><p>Earplugs or white noise can help.</p></div>
+        <div><h3>Avoid nicotine</h3><p>Smoking disrupts sleep, though sleep may get worse for a few weeks after quitting.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH SPOTLIGHT -->
+  <section class="alt">
+    <div class="wrap">
+      <h2>Research in Occupational Therapy</h2>
+      <p class="lead">Ho and Siu (2022) tested a 4-week sleep program for adults with insomnia.</p>
+      <ul class="clean">
+        <li>Used the Person-Environment-Occupation-Performance model designed by occupational therapists.</li>
+        <li>The program covered three areas: the person (sleep education, calming activities), the environment (bedroom changes, sleep aids), and occupation (balancing daily activities).</li>
+        <li>Weekly goal-setting and coaching helped people make changes in their own routines.</li>
+        <li>It worked better than sleep hygiene education and relaxation alone.</li>
+        <li>People who slept longer and better were associated with less depression and anxiety.</li>
+        <li>Their balance of daily activities improved, and gains kept growing after the program ended.</li>
+        <li>Limitations: small study, not randomized, one-month follow-up.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="checklist" id="checklist">
+    <div class="wrap">
+      <h2>YOUR CHECKLIST TITLE</h2>
+      <label><input type="checkbox"><span>Wake up at the same time</span></label>
+      <label><input type="checkbox"><span>Stop caffeine near bedtime</span></label>
+      <label><input type="checkbox"><span>Skip alcohol and nicotine before bed</span></label>
+      <label><input type="checkbox"><span>Get some exercise today</span></label>
+      <label><input type="checkbox"><span>Do something calming before bed</span></label>
+      <label><input type="checkbox"><span>Quiet the bedroom</span></label>
+    </div>
+  </section>
+
+  <!-- RESOURCES: replace each href="#" with a real link -->
+  <section class="resources" id="resources">
+    <div class="wrap">
+      <h2>Resources</h2>
+      <p class="placeholder">YOUR INTRO: one sentence on how to use these.</p>
+      <div class="res-grid">
+        <div><h3>Trusted health info</h3><ul>
+          <li><a href="https://www.cdc.gov/sleep/about/index.html" target="_blank" rel="noopener">About Sleep (CDC)</a></li>
+          <li><a href="https://www.sciencedirect.com/science/article/pii/S1087079224000340" target="_blank" rel="noopener">Sleep Hygiene: What Do We Mean? (research review)</a></li></ul></div>
+        <div><h3>Sleep sounds and music</h3><ul>
+          <li><a href="https://www.youtube.com/watch?v=yIQd2Ya0Ziw" target="_blank" rel="noopener">Rain Sounds for Sleep</a></li>
+          <li><a href="https://www.youtube.com/watch?v=bn9F19Hi1Lk" target="_blank" rel="noopener">Ocean Waves</a></li>
+          <li><a href="https://www.youtube.com/watch?v=rA7m3iKpuko" target="_blank" rel="noopener">Sleep Music</a></li></ul></div>
+        <div><h3>Sleep timers and apps</h3><ul>
+          <li><a href="https://sleepytime.cc/" target="_blank" rel="noopener">Sleep Calculator</a></li>
+          <li><a href="#" target="_blank" rel="noopener">LINK NAME</a></li></ul></div>
+        <div><h3>Printable routines</h3><ul>
+          <li><a href="https://printables.hp.com/us/en/collections/art-therapy" target="_blank" rel="noopener">Adult Coloring Pages</a></li>
+          <li><a href="https://printables.hp.com/us/en/collections/kid-s-coloring-pages" target="_blank" rel="noopener">Children’s Coloring Pages</a></li>
+          <li><a href="https://printables.hp.com/us/en/collections/calendars-and-planners" target="_blank" rel="noopener">Checklists &amp; Planner Templates</a></li></ul></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h3>Sources</h3>
+    <p class="ref">De Pasquale, C., El Kazzi, M., Sutherland, K., Shriane, A. E., Vincent, G. E., Cistulli, P. A., &amp; Bin, Y. S. (2024). Sleep hygiene – What do we mean? A bibliographic review. <em>Sleep Medicine Reviews, 75</em>, Article 101930. <a href="https://doi.org/10.1016/j.smrv.2024.101930" target="_blank" rel="noopener">https://doi.org/10.1016/j.smrv.2024.101930</a></p>
+    <p class="ref">Espie, C. A. (2022). The ‘5 principles’ of good sleep health. <em>Journal of Sleep Research, 31</em>(3), Article e13502. <a href="https://doi.org/10.1111/jsr.13502" target="_blank" rel="noopener">https://doi.org/10.1111/jsr.13502</a></p>
+    <p class="ref">Ho, E. C. M., &amp; Siu, A. M. H. (2022). Evaluation of an occupation-based sleep programme for people with insomnia. <em>Hong Kong Journal of Occupational Therapy, 35</em>(2), 168–179. <a href="https://doi.org/10.1177/15691861221136261" target="_blank" rel="noopener">https://doi.org/10.1177/15691861221136261</a></p>
+    <p class="ref">Irish, L. A., Kline, C. E., Gunn, H. E., Buysse, D. J., &amp; Hall, M. H. (2015). The role of sleep hygiene in promoting public health: A review of empirical evidence. <em>Sleep Medicine Reviews, 22</em>, 23–36. <a href="https://www.sciencedirect.com/science/article/pii/S1087079214001002" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/pii/S1087079214001002</a></p>
+    <p>Design and page template created with AI assistance. All text, research, and sources are my own.</p>
+  </div>
+</footer>
+
+</body>
+</html>
