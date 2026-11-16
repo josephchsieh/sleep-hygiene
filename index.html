@@ -72,6 +72,42 @@
   h2.has-sub { margin-bottom:.15em; }
   .subhead { color:var(--indigo); font-size:1.2rem; font-weight:700; margin-bottom:1.25rem; }
   .scroll-hint { color:var(--muted); font-size:.85rem; margin:0; }
+  .disorders { background:#fbeef1; }
+  .dis-grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); margin-top:2rem; align-items:start; }
+  .dis-card { background:#fff; border-radius:20px; overflow:hidden; }
+  .dis-card summary { list-style:none; cursor:pointer; padding:1.1rem 3.25rem 1.1rem 1.25rem; position:relative; display:block; }
+  .dis-card summary::-webkit-details-marker { display:none; }
+  .dis-card summary::after { content:"+"; position:absolute; right:1.1rem; top:50%; transform:translateY(-50%); width:28px; height:28px; border-radius:50%; background:var(--mist); color:var(--indigo); font-weight:800; font-size:1.1rem; display:grid; place-items:center; line-height:1; transition:transform .2s; }
+  .dis-card[open] summary::after { content:"\2212"; }
+  .dis-card summary:focus-visible { outline:3px solid var(--amber); outline-offset:-3px; border-radius:20px; }
+  .dis-name { display:block; font-weight:800; font-size:1.1rem; color:var(--indigo); }
+  .dis-short { display:block; font-size:.92rem; margin-top:.15rem; }
+  .dis-body { padding:0 1.25rem 1.25rem; border-top:2px solid var(--mist); padding-top:1rem; margin:0 1.25rem; padding-left:0; padding-right:0; }
+  .dis-name.placeholder { color:var(--indigo); }
+  @media (prefers-reduced-motion: reduce) { .dis-card summary::after { transition:none; } }
+  .study-list { display:grid; gap:1rem; margin-top:1.5rem; }
+  .res-study { background:#fff; border-radius:20px; overflow:hidden; }
+  .res-study summary { list-style:none; cursor:pointer; padding:1.1rem 3.25rem 1.1rem 1.25rem; position:relative; display:block; }
+  .res-study summary::-webkit-details-marker { display:none; }
+  .res-study summary::after { content:"+"; position:absolute; right:1.1rem; top:50%; transform:translateY(-50%); width:28px; height:28px; border-radius:50%; background:var(--mist); color:var(--indigo); font-weight:800; font-size:1.1rem; display:grid; place-items:center; line-height:1; }
+  .res-study[open] summary::after { content:"\2212"; }
+  .res-study summary:focus-visible { outline:3px solid var(--amber); outline-offset:-3px; border-radius:20px; }
+  .res-study .dis-body { padding-bottom:1.25rem; }
+  .cite a { color:var(--muted); font-weight:600; text-decoration-color:var(--amber); text-underline-offset:3px; }
+  .ot { background:var(--paper); }
+  .ot-grid { display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); align-items:start; margin-top:1.75rem; }
+  .ot-card { background:var(--mist); border-radius:20px; padding:1.4rem 1.4rem 1.5rem; border-top:5px solid var(--amber); }
+  .ot-card h3 { color:var(--indigo); margin-bottom:.35em; }
+  .ot-card p { margin:0; }
+  .ot-card ul.clean li { padding:.2rem 0; }
+  .ot-single { margin-top:1.5rem; padding:1.5rem 1.75rem; }
+  .ot-list { column-width:320px; column-gap:2.5rem; }
+  .ot-list li { break-inside:avoid; }
+  .hero .ai-note { font-size:.72rem; color:var(--muted); margin-top:1.25rem; }
+  .ot-btn { display:inline-flex; align-items:center; gap:.5rem; margin-top:1.5rem; background:var(--amber); color:var(--ink); text-decoration:none; font-weight:800; padding:.8rem 1.5rem; border-radius:999px; box-shadow:0 3px 0 #e48f6b; transition:transform .15s, box-shadow .15s; }
+  .ot-btn:hover { transform:translateY(-2px); box-shadow:0 5px 0 #e48f6b; }
+  .ot-btn:focus-visible { outline:3px solid var(--indigo); outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce) { .ot-btn { transition:none; } .ot-btn:hover { transform:none; } }
 </style>
 </head>
 <body>
@@ -79,9 +115,10 @@
   <div class="moon" aria-hidden="true"></div>
   <div class="wrap">
     <h1>Sleep Hygiene</h1>
-    <p>Eliza Crumley, Joseph Hsieh, Hannah Lopez &amp; Hailey Yektafar</p>
+    <p>Eliza Crumley, BS, OTDS; Joseph Hsieh, BS, OTDS; Hannah Lopez, BS, OTDS; &amp; Hailey Yektafar, BS, OTDS</p>
     <p>November 19, 2026</p>
     <a class="scroll" href="#info">Scroll to start</a>
+    <p class="ai-note">Design and page template created with AI assistance. All text, research, and sources are our own.</p>
   </div>
 </header>
 <main>
@@ -103,16 +140,6 @@
   <section class="alt">
     <div class="wrap two">
       <div>
-        <h2>Why does sleep matter?</h2>
-        <ul class="clean">
-          <li>Over half of Americans report sleep problems.</li>
-          <li>Poor sleep affects motivation, mood, and thinking.</li>
-          <li>Poor sleep raises the risk of diabetes, heart disease, and other health problems.</li>
-          <li>These effects happen even when sleep problems are mild.</li>
-        </ul>
-        <p class="cite">(Irish et al., 2015)</p>
-      </div>
-      <div>
         <h2>What is sleep hygiene?</h2>
         <p class="lead">Sleep hygiene means daily habits and bedroom conditions that support good sleep.</p>
         <ul class="clean">
@@ -122,6 +149,98 @@
         </ul>
         <p class="cite">(De Pasquale et al., 2024)</p>
       </div>
+      <div>
+        <h2>Why does sleep matter?</h2>
+        <ul class="clean">
+          <li>Over half of Americans report sleep problems.</li>
+          <li>Poor sleep affects motivation, mood, and thinking.</li>
+          <li>Poor sleep raises the risk of diabetes, heart disease, and other health problems.</li>
+          <li>These effects happen even when sleep problems are mild.</li>
+        </ul>
+        <p class="cite">(Irish et al., 2015)</p>
+      </div>
+    </div>
+  </section>
+  <!-- COMMON SLEEP DISORDERS: replace each placeholder with your own text.
+       Each <details class="dis-card"> block is one disorder; copy a block to add more,
+       or delete one to remove it. Visitors tap a card to open it. -->
+  <section class="disorders" id="disorders">
+    <div class="wrap">
+      <h2>Common sleep disorders</h2>
+      <div class="dis-grid">
+        <details class="dis-card">
+          <summary>
+            <span class="dis-name">Insomnia</span>
+            <span class="dis-short">Difficulty falling asleep or staying asleep</span>
+          </summary>
+          <div class="dis-body">
+            <ul class="clean">
+              <li>Waking too early</li>
+              <li>Feeling unrested during the day</li>
+              <li>Chronic insomnia occurs at least 3 nights per week for 3 months or longer</li>
+              <li>May be caused by stress, anxiety, depression, pain, illness, medications, caffeine, alcohol, or irregular schedules</li>
+            </ul>
+          </div>
+        </details>
+        <details class="dis-card">
+          <summary>
+            <span class="dis-name">Sleep apnea</span>
+            <span class="dis-short">Breathing repeatedly stops and starts during sleep</span>
+          </summary>
+          <div class="dis-body">
+            <ul class="clean">
+              <li>Loud snoring</li>
+              <li>Gasping or choking</li>
+              <li>Pauses in breathing</li>
+              <li>Morning headaches or dry mouth</li>
+              <li>Daytime fatigue and difficulty concentrating</li>
+            </ul>
+          </div>
+        </details>
+        <details class="dis-card">
+          <summary>
+            <span class="dis-name">Restless legs syndrome</span>
+            <span class="dis-short">Uncomfortable sensations in the legs</span>
+          </summary>
+          <div class="dis-body">
+            <ul class="clean">
+              <li>Tingling, crawling, prickling, or aching feelings</li>
+              <li>Strong urge to move or stretch the legs</li>
+              <li>Symptoms are usually worse at night or when resting</li>
+            </ul>
+          </div>
+        </details>
+        <details class="dis-card">
+          <summary>
+            <span class="dis-name">Narcolepsy</span>
+            <span class="dis-short">Extreme daytime sleepiness</span>
+          </summary>
+          <div class="dis-body">
+            <ul class="clean">
+              <li>Sudden episodes of falling asleep</li>
+              <li>Disrupted nighttime sleep</li>
+              <li>Vivid dreams or sleep paralysis</li>
+              <li>Sudden muscle weakness triggered by strong emotions</li>
+            </ul>
+          </div>
+        </details>
+        <details class="dis-card">
+          <summary>
+            <span class="dis-name">Parasomnias</span>
+            <span class="dis-short">Unusual behaviors or experiences during sleep</span>
+          </summary>
+          <div class="dis-body">
+            <ul class="clean">
+              <li>Sleepwalking</li>
+              <li>Night terrors</li>
+              <li>Sleep paralysis</li>
+              <li>Acting out dreams</li>
+              <li>Possible safety risks, such as falls or injuries</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+      <p class="cite">(National Heart, Lung, and Blood Institute [NHLBI], 2011)</p>
     </div>
   </section>
   <!-- TIPS -->
@@ -182,28 +301,71 @@
       </div>
     </div>
   </section>
-  <!-- RESEARCH SPOTLIGHT -->
-  <section class="alt">
+  <!-- OCCUPATIONAL THERAPY: replace each placeholder with your own text.
+       To add a point, copy one <li>...</li> line. -->
+  <section class="ot" id="ot">
     <div class="wrap">
-      <h2 class="has-sub">Sleep Research</h2>
-      <h3 class="subhead">Insomnia research in adults</h3>
-      <p class="lead">Ho and Siu (2022) tested a 4-week sleep program for adults with insomnia.</p>
-      <ul class="clean">
-        <li>Used the Person-Environment-Occupation-Performance model designed by occupational therapists.</li>
-        <li>The program covered three areas: the person (sleep education, calming activities), the environment (bedroom changes, sleep aids), and occupation (balancing daily activities).</li>
-        <li>Weekly goal-setting and coaching helped people make changes in their own routines.</li>
-        <li>It worked better than sleep hygiene education and relaxation alone.</li>
-        <li>People who slept longer and better were associated with less depression and anxiety.</li>
-        <li>Their balance of daily activities improved, and gains kept growing after the program ended.</li>
-        <li>Limitations: small study, not randomized, one-month follow-up.</li>
-      </ul>
-      <p class="cite">(Ho &amp; Siu, 2022)</p>
+      <h2>How can Occupational Therapy help you?</h2>
+      <div class="ot-card ot-single">
+        <ul class="clean ot-list">
+          <li>Evaluate how sleep habits, work schedules, and environmental factors affect occupational performance</li>
+          <li>Provide individualized sleep hygiene education and interventions</li>
+          <li>Help workers establish routines that balance sleep, work, family responsibilities, and leisure</li>
+          <li>Collaborate with employers to create healthier work environments and promote worker well-being</li>
+          <li>Develop consistent daily and bedtime routines</li>
+          <li>Modify the bedroom environment</li>
+          <li>Reduce light, noise, and sensory distractions</li>
+          <li>Teach relaxation strategies</li>
+          <li>Improve safety during daily activities</li>
+          <li>Help caregivers support healthy sleep habits</li>
+          <li>Refer the client to a physician or sleep specialist when necessary</li>
+        </ul>
+      </div>
+      <a class="ot-btn" href="https://otpotential.com/treatment/occupational-therapy-sleep" target="_blank" rel="noopener">Find an occupational therapist <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+  <!-- RESEARCH SPOTLIGHT
+       Each <details class="res-study"> block is one study; visitors tap it to open.
+       To add another study, copy a whole block and change the text. -->
+  <section class="alt" id="research">
+    <div class="wrap">
+      <h2>Sleep Research</h2>
+      <div class="study-list">
+        <details class="res-study">
+          <summary><span class="dis-name">Insomnia research in adults</span></summary>
+          <div class="dis-body">
+            <p class="lead">Ho and Siu (2022) tested a 4-week sleep program for adults with insomnia.</p>
+            <ul class="clean">
+              <li>Used the Person-Environment-Occupation-Performance model designed by occupational therapists.</li>
+              <li>The program covered three areas: the person (sleep education, calming activities), the environment (bedroom changes, sleep aids), and occupation (balancing daily activities).</li>
+              <li>Weekly goal-setting and coaching helped people make changes in their own routines.</li>
+              <li>It worked better than sleep hygiene education and relaxation alone.</li>
+              <li>People who slept longer and better were associated with less depression and anxiety.</li>
+              <li>Their balance of daily activities improved, and gains kept growing after the program ended.</li>
+              <li>Limitations: small study, not randomized, one-month follow-up.</li>
+            </ul>
+            <p class="cite">(Ho &amp; Siu, 2022)</p>
+          </div>
+        </details>
+        <details class="res-study">
+          <summary><span class="dis-name">Impact of Sleep on Work Performance</span></summary>
+          <div class="dis-body">
+            <ul class="clean">
+              <li>Restorative sleep supports attention, decision-making, emotional regulation, and motivation</li>
+              <li>Sleep deprivation decreases alertness, reaction time, coordination, and overall work performance</li>
+              <li>Fatigue increases workplace errors and safety risks, especially in health care, transportation, and manufacturing</li>
+              <li>Both sleep duration and sleep quality affect mental health and job performance</li>
+            </ul>
+            <p class="cite">(<a href="https://www.aota.org/publications/sis-quarterly/work-industry-sis/wisis-11-21" target="_blank" rel="noopener">Sanders et al., 2021</a>)</p>
+          </div>
+        </details>
+      </div>
     </div>
   </section>
   <!-- CHECKLIST -->
   <section class="checklist" id="checklist">
     <div class="wrap">
-      <h2>Routine checklist</h2>
+      <h2>Practice routine checklist</h2>
       <label><input type="checkbox"><span>Wake up at the same time</span></label>
       <label><input type="checkbox"><span>Stop caffeine near bedtime</span></label>
       <label><input type="checkbox"><span>Skip alcohol and nicotine before bed</span></label>
@@ -237,12 +399,14 @@
 </main>
 <footer>
   <div class="wrap">
-    <h3>Sources</h3>
+    <h3>References</h3>
     <p class="ref">De Pasquale, C., El Kazzi, M., Sutherland, K., Shriane, A. E., Vincent, G. E., Cistulli, P. A., &amp; Bin, Y. S. (2024). Sleep hygiene – What do we mean? A bibliographic review. <em>Sleep Medicine Reviews, 75</em>, Article 101930. <a href="https://doi.org/10.1016/j.smrv.2024.101930" target="_blank" rel="noopener">https://doi.org/10.1016/j.smrv.2024.101930</a></p>
     <p class="ref">Espie, C. A. (2022). The ‘5 principles’ of good sleep health. <em>Journal of Sleep Research, 31</em>(3), Article e13502. <a href="https://doi.org/10.1111/jsr.13502" target="_blank" rel="noopener">https://doi.org/10.1111/jsr.13502</a></p>
     <p class="ref">Ho, E. C. M., &amp; Siu, A. M. H. (2022). Evaluation of an occupation-based sleep programme for people with insomnia. <em>Hong Kong Journal of Occupational Therapy, 35</em>(2), 168–179. <a href="https://doi.org/10.1177/15691861221136261" target="_blank" rel="noopener">https://doi.org/10.1177/15691861221136261</a></p>
     <p class="ref">Irish, L. A., Kline, C. E., Gunn, H. E., Buysse, D. J., &amp; Hall, M. H. (2015). The role of sleep hygiene in promoting public health: A review of empirical evidence. <em>Sleep Medicine Reviews, 22</em>, 23–36. <a href="https://www.sciencedirect.com/science/article/pii/S1087079214001002" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/pii/S1087079214001002</a></p>
+    <p class="ref">National Heart, Lung, and Blood Institute. (2011). <em>Your guide to healthy sleep</em> (NIH Publication No. 11-5271). U.S. Department of Health and Human Services, National Institutes of Health. <a href="https://www.nhlbi.nih.gov/resources/your-guide-healthy-sleep" target="_blank" rel="noopener">https://www.nhlbi.nih.gov/resources/your-guide-healthy-sleep</a></p>
     <p class="ref">Noyed, D. (2025, July 22). <em>Bedtime routines for adults</em> (D. Rosen, Medical Reviewer). Sleep Foundation. <a href="https://www.sleepfoundation.org/sleep-hygiene/bedtime-routine-for-adults" target="_blank" rel="noopener">https://www.sleepfoundation.org/sleep-hygiene/bedtime-routine-for-adults</a></p>
+    <p class="ref">Sanders, M. J., Thayer, A., Guzman, C., Brown, E., Crowley, M., &amp; Cepeda, A. (2021). The impact of sleep on work. <em>SIS Quarterly Practice Connections, 6</em>(4), 31–33. <a href="https://www.aota.org/publications/sis-quarterly/work-industry-sis/wisis-11-21" target="_blank" rel="noopener">https://www.aota.org/publications/sis-quarterly/work-industry-sis/wisis-11-21</a></p>
     <p class="ref">Vaughan, E. (2026, March 11). <em>5 relaxing activities for sleep</em>. National Council for Mental Wellbeing. <a href="https://www.mentalhealthfirstaid.org/news/5-relaxing-activities-for-sleep/" target="_blank" rel="noopener">https://www.mentalhealthfirstaid.org/news/5-relaxing-activities-for-sleep/</a></p>
     <p>Design and page template created with AI assistance. All text, research, and sources are our own.</p>
   </div>
